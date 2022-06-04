@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'css/staff.css' %}">
+{% endblock %}
+{% block content %}
+<body>
+  <div class="container">
+    <h1 class="heading"><span>Meet</span> Our Team</h1>
+
+    <div class="profiles">
+       <div class="profile">
+        <img src="{% static 'images/staff/ulugbek.jpg'%}" class="profile-img">
+
+        <h3 class="user-name">Khalimbetov Ulugbek</h3>
+        <h5>Managing Director</h5>
+       <p>Clever and good guy that keeps eye on the backend and some parts of front end!)</p>
+      </div>
+      <div class="profile">
+        <img src="{% static 'images/staff/sarvarbek.jpg'%}" class="profile-img">
+
+        <h3 class="user-name">Sarvarbek</h3>
+        <h5>Managing Director</h5>
+       <p>helping to structure with front end and Js and making team work.</p>
+      </div>
+      <div class="profile">
+        <img src="{% static 'images/staff/samandar.jpg' %}" class="profile-img">
+
+        <h3 class="user-name">Samandar</h3>
+        <h5>Finance Manager </h5>
+           <p>helping in maintaining and reusing the old code</p>
+      </div>
+     </div>
+     <class class="container02">
+      <div class="profile">
+        <img src="{% static 'images/staff/yadav.jpg' %}" class="profile-img">
+  
+        <h3 class="user-name">Yadav</h3>
+        <h5>Sales Manager</h5>
+        <p>helping in maintaining and reusing the old code</p>
+      </div>
+          <div class="profile">
+          <img src="{% static 'images/staff/mirshoir.jpg' %}" class="profile-img">
+          <h3 class="user-name">Mirshoir</h3>
+          <h5>Top Executive</h5>
+           <p>the main designer of the project</p>
+      </div>
+     </class>
+   </div>
+  </body>
+
+{% endblock %}

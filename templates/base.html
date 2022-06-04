@@ -1,0 +1,49 @@
+{% load static %}
+{% load cart_template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Django Ecom </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block links %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+          integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<style>
+
+    .drop:hover{
+    text-decoration: underline;
+        color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="site-wrap">
+{% include "header.html" %}
+
+<div style="padding-bottom: 200px">
+    {% block content %}
+
+  {% endblock content %}
+</div>
+    {% include 'footer.html' %}
+</div>
+
+
+
+    {% include 'js_scripts.html' %}
+
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% load static %}
+{% load cart_template_tags %}
+<header class="site-navbar" role="banner">
+        <div class="site-navbar-top">
+            <div class="container">
+                <div class="logo-and-bucket">
+                        <a href="/">
+                            <img class="logo" src="{% static 'images/logo.png' %}" style="max-width: 150px;"/>
+                        </a>
+                        <div class="site-top-icons">
+
+                            <ul>
+                           <li>
+                                {% if request.user.is_authenticated %}
+                                    <a  href="#"><i class="static fas fa-user"></i><span class="static" style="color: lightgreen; "> {{ user.get_username }} </span>&#8595</a>
+                                     <a class="drop" href="{% url 'logout' %}">logout</a>
+                                {% else %}
+                                <a href="{% url 'login' %}"><span><i class="fas fa-sign-in-alt"></i></span></a>
+                                {% endif %}
+
+                           </li>
+                                <li>
+
+                                    <a href="{% url 'cart:summary' %}" class="site-cart">
+                                        <span><i class="fas fa-shopping-cart"></i></span>
+                                        <span class="count">{{ request|cart_item_count }}</span>
+                                    </a>
+                                </li>
+                                <li class="burger" id="burger">
+                                        <span class="s-bur" id="s-bur"></span>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <nav class="site-navigation768" role="navigation">
+            <div class="container nav-two">
+                <div style="color: black">fwefwfwef</div>
+                <ul class="site-menu" style="padding: 0;">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'cart:product-list' %}">Shop</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'staff' %}">staff</a></li>
+                </ul>
+                <div class="site-top-icons">
+                    <ul>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                                <a href="#"><i class="fas fa-user"></i><span style="color: lightgreen"> {{ user.get_username }} </span>&#8595</a>
+                                  <ul class="nav-dropdown">
+                                    <li>
+                                      <a class="drop" style="background-color: black; padding-bottom: 20px; border-radius: 10px; padding-right: 50px; padding-left: 30px" href="{% url 'logout' %}">logout</a>
+                                    </li>
+                                  </ul>
+
+
+                            {% else %}
+                            <a href="{% url 'login' %}"><span><i class="fas fa-sign-in-alt"></i></span></a>
+                            {% endif %}
+                        </li>
+
+                        <li style="padding-left: 10px;">
+                            <a href="{% url 'cart:summary' %}" class="site-cart">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                                <span class="count">{{ request|cart_item_count }}</span>
+                            </a>
+                        </li>
+                        <li class="burger" id="burger">
+                                <span class="s-bur" id="s-bur"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <nav class="site-navigation" role="navigation" id="site-navigation">
+        <div class="container">
+            <ul class="site-menu" style="padding: 0;">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'cart:product-list' %}">Shop</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                 <li><a href="{% url 'staff' %}">staff</a></li>
+            </ul>
+        </div>
+    </nav>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+                    <span class="alert-inner--text">{{ message }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+            <script>
+                document.getElementsByClassName("close")[0].addEventListener("click", function() {
+                    document.getElementsByClassName("alert")[0].classList.toggle("d-none");
+                });
+            </script>
+        {% endif %}
+
+    </header>

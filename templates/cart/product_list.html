@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="bread">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-0">
+                    <a href="/">Home</a>
+                    <span class="mx-2 mb-0">/</span>
+                    <strong class="text-black">Shop</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container-product">
+            {% for product in object_list %}
+            <div style="width: 300px;" class="product element-animation-left">
+                <div class="figure-wrap">
+                    <figure class="">
+                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" style="width: 300px;" class="img-fluid"></a>
+                    </figure>
+                    <div class="description">
+                        <div style="color: blueviolet; font-size: 30px;"><a style="font-size: 30px; color: blueviolet; cursor: default" href="{{ product.get_absolute_url }}">{{product.price}}</a>$</div>
+                        <a href="{{ product.get_absolute_url }}">
+                            <h3>{{ product.title }}</h3>
+                        </a>
+                        <p class="mb-0">{{ product.description|truncatechars:40 }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <h1>You need to add products</h1>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

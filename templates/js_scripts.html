@@ -1,0 +1,49 @@
+<script>
+    var burger = document.getElementById("burger");
+    var nav = document.getElementById("site-navigation");
+    burger.addEventListener("click", function() {
+        nav.classList.toggle("site-navigation-active");
+        burger.classList.toggle("burger-active");
+    });
+
+    /* Parallax */
+      function onEntry(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+        change.target.classList.add('element-show-left');
+        }
+    });
+    }
+    let options = { threshold: [0.5] };
+    let observer = new IntersectionObserver(onEntry, options);
+    let elements = document.querySelectorAll('.element-animation-left');
+
+    for (let elm of elements) {
+    observer.observe(elm);
+    }
+
+     (function ($) {
+
+  $(function () {
+
+    $("nav ul li a:not(:only-child)").click(function (e) {
+      $(this).siblings(".nav-dropdown").toggle();
+        $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+
+    $("html").click(function () {
+      $(".nav-dropdown").hide();
+    });
+
+    $(".nav-toggle").click(function () {
+      $("nav ul").slideToggle();
+    });
+
+    $(".nav-toggle").on("click", function () {
+      this.classList.toggle("active");
+    });
+    $(".nav-dropdown").hide();
+  });
+})(jQuery);
+</script>

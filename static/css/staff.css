@@ -1,0 +1,114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Cookie&family=Parisienne&family=Satisfy&family=Smooch&display=swap');
+
+p{
+  font-family: "sans-serif";
+}
+
+body {
+  background-color: #12172b;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: 20px 40px;
+  color: white;
+}
+
+.heading {
+  font-size: 60px;
+  color: yellow;
+}
+
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+
+.profile {
+  flex-basis: 260px;
+}
+
+.profile .profile-img {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
+
+.user-name {
+  margin-top: 30px;
+  font-size: 35px;
+  font-family: 'Cookie', cursive;
+  font-style: italic;
+  color: cadetblue;
+}
+
+.profile h5 {
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+
+.profile p {
+  font-size: 25px;
+  margin-top: 15px;
+  font-weight: 100;
+  text-align: center;
+  color: coral;
+
+}
+
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+
+  .heading {
+    font-size: 60px;
+    color: yellow;
+    text-align: center;
+  }
+
+  .heading span {
+    font-size: 30px;
+  }
+
+  .profiles {
+    margin: 20px 0;
+  }
+
+.container02{
+  padding: 70px;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+h3{
+  text-align: center;
+}
+

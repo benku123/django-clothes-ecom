@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="bread">
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="">/</span>
+                    <strong class="text-black">Contact</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="site-section">
+    <div class="container">
+        <div class="">
+            <div class="">
+                <h2 class="">Get in touch</h2>
+            </div>
+            <div class="">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn" value="Submit message">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

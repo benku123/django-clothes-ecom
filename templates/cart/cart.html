@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bread">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-0">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="mx-2 mb-0">/</span>
+                    <strong class="text-black">Cart</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="site-section">
+    <div class="container">
+        <div class="bucket">
+            <div class="b-container">
+                {% for item in order.items.all %}
+                    <div class="b-item-1">
+                        <div class="b-image">
+                            <img src="{{ item.product.image.url }}" alt="">
+                        </div>
+                        <div class="b-desc">
+                            <div class="b-price">${{ item.product.get_price }}</div>
+                            <div class="b-name">{{ item.product.title }}, {{ item.product.description }}</div>
+                            <div class="input-group" style="max-width: 120px;">
+                                <div class="input-group-prepend">
+                                    <a href="{% url 'cart:decrease-quantity' item.id %}"
+                                        class="btn-b">
+                                        &minus;
+                                    </a>
+                                </div>
+                                <input type="text" class="form-count" value="{{ item.quantity }}">
+                                <div class="input-group-append">
+                                    <a href="{% url 'cart:increase-quantity' item.id %}"
+                                        class="btn-b">
+                                        &plus;
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="p-color">
+                                <span><div>Color:</div></span><div class="color-ellipse" style="background: {{ item.colour.color }};"></div>
+                            </div>
+                            <div class="p-size">
+                                <div>Size:<span>{{ item.size.name }}</span></div>
+                            </div>
+                            <a href="{% url 'cart:remove-from-cart' item.id %}" class="delete">Delete</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h1 style="color: #3f51b5">The cart is empty right now.</h1>
+                {% endfor %}
+            </div>
+            <div class="total center">
+                Total: <span class="s-total">${{ order.get_raw_subtotal }}</span>
+            </div>
+            <div class="center">
+                <a class="c-shop" href="{% url 'cart:product-list' %}">Continue shopping</a>
+            </div>
+            {% if order.items.count > 0 %}
+            <div class="center">
+                or
+            </div>
+            <div class="center">
+                <a class="p-check" href="{% url 'cart:checkout' %}">Proceed to checkout</a>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+            <!--start of footer-->
+            <footer id="footer" class="footer">
+                <div class="footer-container">
+                  <div class="footer-flex jcc">
+                    <div class="footer-item">
+                      <h4 class="h4">Mobile Shopping</h4>
+                      <p class="footer-item-text">
+                        Lorem Ipsum passages,
+                        and more recently
+                        with desktop publishing
+                        software like Aldus</p>
+                    </div>
+                    <div class="footer-item">
+                      <h4 class="h4">Information</h4>
+                          <div class="item-3">
+                            <a href="#" class="">About us</a>
+                            <a href="#" class="">Delivery information</a>
+                            <a href="#" class="">Privacy Policy</a>
+                            <a href="#" class="">Terms & Condition</a>
+                          </div>
+                    </div>
+                    <div class="footer-item">
+                      <h4 class="h4">Account</h4>
+                      <div class="item-4">
+                        <a href="#" class="">My Account</a>
+                        <a href="#" class="">Order History</a>
+                        <a href="#" class="">Wish list</a>
+                        <a href="#" class="">Newsletter</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+{% endblock content %}

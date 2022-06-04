@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="bread">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-0">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="mx-2 mb-0">/</span>
+                    <strong class="text-black">{{ product.title }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-section">
+        <div class="container">
+            <div class="product-cart">
+                <div class="figure-wrap figure-cart">
+                    <figure class="">
+                        <a href="" style="cursor: alias;"><img src="{{ product.image.url }}" class="img-fluid"></a>
+                    </figure>
+                    <div class="d-cart">
+                        <div class="description">
+                            <div class="price"><span>{{ product.price }}</span></div>
+                            <a href="" style="cursor: alias;">
+                                <h3>{{ product.title }}</h3>
+                            </a>
+                            <p class="mb-0">{{ product.description }}</p>
+                        </div>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type='submit' class="btn" style="margin-top: 20px;">Add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var count_color = {{ product.available_colours.all.count  }};
+    var arr = Array(count_color);
+    var arvar = Array(count_color);
+    {% for color in product.available_colours.all %}
+    arr[{{ forloop.counter0 }}] = "{{ color.color }}";
+    arvar[{{ forloop.counter0 }}] = document.head.appendChild(document.createElement("style"));
+    {% endfor %}
+    for (var i = 0; i < count_color; i++) {
+        let ii = (i+2).toString();
+        console.log(arr[i]);
+        console.log("#id_colour_"+ii+"~label:after {background: " + arr[i] + ";}");
+        arvar[i].innerHTML = "#id_colour_"+ii+"~label:after {background: " + arr[i] + ";}";
+    }
+</script>
+
+{% endblock content %}
