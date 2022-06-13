@@ -16,7 +16,7 @@ def home(request):
             email = form.cleaned_data.get('email')
             new = NewsLetter.objects.create(email=email)
             new.save()
-            messages.info(request, "You have successfully added your addresses")
+            messages.info(request, "You have successfully added your Email")
     else:
         form = NewsForm()
     return render(request, 'index.html', {'emailform': form})

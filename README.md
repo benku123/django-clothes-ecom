@@ -23,7 +23,7 @@
 - [Creators](#creators)
 
 
-##introduction
+## introduction
 The repository has database along with the images and database records to actually run project and see how it shows runtime.
 ## Quick start
 
