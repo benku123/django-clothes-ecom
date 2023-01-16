@@ -38,12 +38,4 @@ The project is completed
 
 
 
-## Creators
-
-**Creator 1**
-
-- Khalimbetov Ulugbek - **full backend and half front-end**
-
-
-
 
