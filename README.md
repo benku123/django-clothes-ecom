@@ -44,9 +44,6 @@ The project is completed
 
 - Khalimbetov Ulugbek - **full backend and half front-end**
 
-**Creator 2**
 
-
-- Sarvarbek Odilov
 
 
